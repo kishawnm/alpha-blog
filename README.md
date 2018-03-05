@@ -1,2 +1,1 @@
-This is my git repository fun fun
-ole ole
+daniyal khan is greater than hammad khan
