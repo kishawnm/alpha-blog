@@ -1,0 +1,18 @@
+<h1>Listing all Articles </h1>
+<p>
+<%= link_to "Create new article", new_article_path %>
+</p>
+<table>
+  <tr>
+      <th>Title</th>
+      <th> Description </th>
+  </tr>
+  <% @articles.each do |arcle| %>
+  <tr>
+      <td> <%= arcle.title %> </td>
+      <td> <%= arcle.description %> </td>
+      <td> <%= link_to 'Edit', edit_article_path(arcle) %> </td>
+      <td> <%= link_to 'Show', article_path(arcle) %> </td>
+    </tr>
+    <% end %>
+</table>
