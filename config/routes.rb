@@ -8,7 +8,7 @@ get 'welcome/home', to: 'welcome#home'
 root 'pages#home'
 
 get 'about', to: 'pages#about'
-
+resources  :articles
 
 
 
