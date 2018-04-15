@@ -2,12 +2,11 @@ require 'test_helper'
 
 Class CreateCategoriesTest  < ActionDispatch::IntegrationTest
 
-
 test "get new category form and create category" do
   get new_category_path
   assert_template 'categories/new'
   assert_difference 'Category.count', 1 do
-    post_categories_path, params: { category: { name: "sports" } }
+    post_categories_path, params: {category:{name:"sports" }}
     follow_redirect!
     end
     assert_template 'categories/index'
@@ -24,4 +23,11 @@ test "get new category form and create category" do
       assert_select 'h2.panel-title'
         assert_select 'div.panel-body'
   end
+
+  test "should redirect create when admin is not logged in" do
+    assert_no_difference 'Category.count' do
+      post categories_path, params: {category:{name:"sports"}}
+  end
+  assert_redirected_to categories_path
+ end
 end
