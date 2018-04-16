@@ -15,6 +15,9 @@
         </small>
       </div>
    </div>
+   <% if arcle.categories.any? %>
+   <p>Categories: <%= render arcle.categories %></p>
+   <% end %>
       <% if logged_in? && (current_user == arcle.user || current_user.admin?) %>
          <div class="article-actions">
            <%= link_to 'Edit this article', edit_article_path(arcle),class: "btn btn-xs btn-primary" %>
